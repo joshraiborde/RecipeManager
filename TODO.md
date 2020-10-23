@@ -12,12 +12,12 @@
 
 ## Requirements
 ### Models
-- [ ] At least:
-  - [ ] one has_many
-  - [ ] one belongs_to
-  - [ ] two has_many :through relationshipsm 
-  - [ ] a many-to-many relationship implemented with has_many :through associations. (where the join table must include a user-submittable attribute other than foreign keys)
-- [ ] reasonable validations for the simple attributes. (the models should defend against invalid data)
+- [x] At least:
+  - [x] one has_many
+  - [x] one belongs_to
+  - [x] two has_many :through relationshipsm 
+  - [x] a many-to-many relationship implemented with has_many :through associations. (where the join table must include a user-submittable attribute other than foreign keys)
+- [x] reasonable validations for the simple attributes. (the models should defend against invalid data)
 - [ ] one scope method. 
 
 ### Auth 

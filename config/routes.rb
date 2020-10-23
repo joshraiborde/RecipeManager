@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # Category, Ingredient, Rating, Recipe Ingredient, Recipe, User, Login/Out
+  root to: redirect('/categories')
+  resources :categories do
+    resources :recipes do
+      resources :ratings, only: %i[new create]
+    end
+  end
+  resources :ingredients
+  resource :user, only: %i[new create show] 
+  resource :session, only: %i[new create delete]
 end

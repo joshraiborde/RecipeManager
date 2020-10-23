@@ -4,11 +4,13 @@
     <title>RecipeManager</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <div><strong><%= type.titleize %>:</strong> <%= msg %> </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

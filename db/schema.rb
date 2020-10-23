@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 2020_10_22_171110) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "categories_id", null: false
+    t.integer "category_id", null: false
     t.integer "estimated_time"
     t.text "directions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["categories_id"], name: "index_recipes_on_categories_id"
+    t.index ["category_id"], name: "index_recipes_on_category_id"
     t.index ["name"], name: "index_recipes_on_name", unique: true
   end
 
@@ -59,5 +59,5 @@ ActiveRecord::Schema.define(version: 2020_10_22_171110) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "recipes", "categories", column: "categories_id"
+  add_foreign_key "recipes", "categories"
 end

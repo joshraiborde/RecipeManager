@@ -8,16 +8,16 @@
 #  name           :string           not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  categories_id  :integer          not null
+#  category_id    :integer          not null
 #
 # Indexes
 #
-#  index_recipes_on_categories_id  (categories_id)
-#  index_recipes_on_name           (name) UNIQUE
+#  index_recipes_on_category_id  (category_id)
+#  index_recipes_on_name         (name) UNIQUE
 #
 # Foreign Keys
 #
-#  categories_id  (categories_id => categories.id)
+#  category_id  (category_id => categories.id)
 #
 class Recipe < ApplicationRecord
     validates :name, presence: true, uniqueness: true
