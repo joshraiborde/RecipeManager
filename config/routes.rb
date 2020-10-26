@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root to: redirect('/categories')
   resources :categories do
     resources :recipes do
-      resources :ratings, only: %i[new create]
+      resources :ratings, only: %i[create destroy]
     end
   end
-  resources :ingredients
+  resources :ingredients, except: %i[show]
   resource :user, only: %i[new create show] 
-  resource :session, only: %i[new create delete]
+  resource :session, only: %i[new create destroy]
 end

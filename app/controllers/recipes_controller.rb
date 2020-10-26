@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :require_logged_in, except: %i[index show]
   before_action :set_category
   before_action :set_recipe, only: %i[show edit update destroy]
 
@@ -7,11 +8,11 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = @category.recipes.build
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = @category.recipes.build(recipe_params)
     if @recipe.save
       redirect_to category_recipe_path(@category, @recipe), notice: "Recipe saved successfully"
     else
@@ -21,6 +22,7 @@ class RecipesController < ApplicationController
 
   def show
     @ratings = @recipe.ratings
+    @rating = @ratings.build
   end
 
   def edit

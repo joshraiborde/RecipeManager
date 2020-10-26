@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :require_logged_in, except: %i[index show]
   before_action :set_category, only: %i[show edit update destroy]
 
   def index
