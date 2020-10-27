@@ -1,0 +1,8 @@
+<li>
+    <strong><%= ingredient.name %></strong> 
+    <em>(Units: <%= ingredient.units %>)</em>
+    &nbsp;&mdash;&nbsp;
+    <small>(<%= link_to 'edit', edit_ingredient_path(ingredient) %>)</small>
+    &nbsp;&bull;&nbsp;
+    <small>(<%= link_to 'delete', ingredient_path(ingredient), method: :delete, data: { confirm: 'Are you sure?' } %>)</small>
+</li>

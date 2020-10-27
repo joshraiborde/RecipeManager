@@ -1,2 +1,8 @@
-<h1>Ingredients#index</h1>
-<p>Find me in app/views/ingredients/index.html.erb</p>
+<h1>Ingredients</h1>
+<ul>
+    <%= render partial: 'show', collection: @ingredients, as: :ingredient %>
+</ul>
+
+
+<p></p>
+<p><%= link_to 'New Ingredient', new_ingredient_path %></p>

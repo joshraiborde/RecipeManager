@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-
-protected
+    helper_method %i[current_user current_user_id logged_in? logged_out?]
     def current_user
         return @current_user if defined?(@current_user)
         @current_user = !cookies.signed[:user_id].blank? ? User.find(cookies.signed[:user_id]) : nil
@@ -20,7 +19,7 @@ protected
 
     def require_logged_in
         return if logged_in?
-        redirect_to root_path, alert: 'Login required to view this page'
+        redirect_to new_session_path, alert: 'Login required to view this page'
     end
 
     def require_logged_out

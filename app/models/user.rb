@@ -17,7 +17,7 @@ class User < ApplicationRecord
     has_many :ratings
     has_many :recipes, through: :ratings
     
-    has_secure_password, validations: false
+    has_secure_password validations: false
 
 
     validates :name, presence: true

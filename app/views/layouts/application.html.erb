@@ -8,9 +8,20 @@
   </head>
 
   <body>
+    <h1>Recipe Manager</h1>
     <% flash.each do |type, msg| %>
       <div><strong><%= type.titleize %>:</strong> <%= msg %> </div>
     <% end %>
+    <div>
+      <strong><%= link_to 'Categories', categories_path %></strong>&nbsp;&nbsp;&bull;&nbsp;
+      <strong><%= link_to 'Ingredients', ingredients_path %></strong>&nbsp;&nbsp;&bull;&nbsp;
+      <% if logged_in? %>
+        <strong><%= link_to 'User Profile', user_path %></strong>&nbsp;&nbsp;&bull;&nbsp;
+        <strong><%= link_to 'Log Out', session_path, method: :delete, data: { confirm: 'Are you sure?' } %></strong>
+      <% else %>
+       <strong><%= link_to 'Log In', new_session_path %></strong>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,14 @@
+<h1>Login</h1>
+<%= form_with model: @session, url: session_path, local: true do |f| %>
+    <% if @session.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@session.errors.count, "error") %> prohibited the login</h2>
+            <ul>
+                <% @session.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %>
+            </ul>
+        </div>
+    <% end %>
+    <p><strong><%= f.label :email %> </strong><%= f.email_field :email %></p>
+    <p><strong><%= f.label :password %> </strong><%= f.password_field :password %></p>
+    <p><%= f.submit %></p>
+<% end %>

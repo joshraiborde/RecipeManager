@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   before_action :require_logged_in, only: %i[show]
   before_action :require_logged_out, except: %i[show]
 
@@ -9,6 +9,7 @@ class UserController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      cookies.signed[:user_id] = @user.id
       redirect_to user_path, notice: "User saved successfully"
     else
       render :new, alert: "User failed to save"
