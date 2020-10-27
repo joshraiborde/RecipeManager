@@ -14,6 +14,15 @@ class Ingredient < ApplicationRecord
     validates :name, presence: true, uniqueness: true
     validates :units, presence: true
     
-    has_many :recipes_ingredients
+    has_many :recipe_ingredients
     has_many :recipes, through: :recipe_ingredients
+
+    def for_dropdown
+        [ "#{name} (#{units})", id ]
+    end
+
+    def self.for_dropdown
+        all.collect(&:for_dropdown)
+    end
+
 end

@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
   def index
-    @recipes = Recipe.all
+    @recipes = @category.recipes
   end
 
   def new
@@ -54,8 +54,7 @@ private
   end
 
   def recipe_params
-    #TODO: permit ingredient
-    params.require(:recipe).permit(:name, :estimated_time, :directions, :category_id)
+    params.require(:recipe).permit(:name, :estimated_time, :directions, recipe_ingredients_attributes: %i[ingredient_id quantity _destroy])
   end
 end
 

@@ -1,2 +1,10 @@
-<h1>Recipe#index</h1>
-<p>Find me in app/views/recipe/index.html.erb</p>
+<h1><%= @category.name %> Recipes</h1>
+
+<p>Select a Recipe Below</p>
+<ul>
+    <% @recipes.each do |r| %>
+    <li><%= link_to r.name, category_recipe_path(@category, r) %></li>
+    <% end %>
+</ul>
+
+<p><%= link_to 'Add New Recipe', new_category_recipe_path(@category) %></p>

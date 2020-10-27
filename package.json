@@ -2,8 +2,11 @@
   "name": "recipe-manager",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@nathanvda/cocoon": "^1.2.14",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "5.2.1"
+    "@rails/webpacker": "5.2.1",
+    "jquery": "^3.5.1"
   },
   "version": "0.1.0",
   "devDependencies": {

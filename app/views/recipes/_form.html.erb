@@ -1,0 +1,23 @@
+<%= form_with model: [ @category, @recipe ], local: true do |f| %>
+    <% if @recipe.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved</h2>
+            <ul>
+                <% @recipe.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %>
+            </ul>
+        </div>
+    <% end %>
+    <p><strong><%= f.label :name %> </strong><%= f.text_field :name %></p>
+    <p><strong><%= f.label :directions %> </strong></p><p><%= f.text_area :directions %></p>
+    <p><strong><%= f.label :estimated_time %> </strong><%= f.number_field :estimated_time %> minutes</p>
+    <p><strong><%= f.label :recipe_ingredients, 'Ingredients' %> </strong></p>
+    <div>
+        <%= f.fields_for :recipe_ingredients do |f2| %>
+            <%= render partial: 'recipe_ingredient_fields', ingredient_form: f2 %>
+        <% end %>
+    </div>
+    <div>
+        <%= link_to_add_association 'Add Another Ingredient', f, :recipe_ingredients, { form_name: 'ingredient_form' } %>
+    </div>
+    <p><%= f.submit %></p>
+<% end %>

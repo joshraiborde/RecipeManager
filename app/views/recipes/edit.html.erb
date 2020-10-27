@@ -1,2 +1,4 @@
-<h1>Recipe#edit</h1>
-<p>Find me in app/views/recipe/edit.html.erb</p>
+<h1>Edit <%= @recipe.name %> Recipe</h1>
+<%= render partial: 'form' %>
+
+<%= link_to 'Delete Recipe', category_recipe_path(@category, @recipe), method: :delete, data: { confirm: 'Are you sure?' } %>

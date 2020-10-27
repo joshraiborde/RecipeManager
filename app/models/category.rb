@@ -12,5 +12,5 @@
 class Category < ApplicationRecord
     validates :name, presence: true, uniqueness: true
     
-    has_many :recipe
+    has_many :recipes
 end

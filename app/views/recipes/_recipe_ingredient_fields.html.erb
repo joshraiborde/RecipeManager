@@ -1,0 +1,11 @@
+<div class="nested-fields">
+    <%= ingredient_form.select :ingredient_id, Ingredient.for_dropdown, prompt: 'Select an Ingredient' %>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <%= ingredient_form.number_field :quantity, placeholder: 'Quantity' %>
+    &nbsp;&nbsp;
+    <%= link_to_remove_association  ingredient_form do %>
+        <span style="color: Tomato;">
+            <i class="fas fa-trash-alt"></i>
+        </span>
+    <% end %>
+</div>

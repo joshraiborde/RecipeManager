@@ -1,0 +1,7 @@
+<h4>Add your rating</h4>
+<%= form_with model: [ @category, @recipe, @rating ], local: true do |f| %>
+    <% @rating.errors.full_messages.each do |msg| %><p><%= msg %></p><% end %>
+    <p><%= f.label :rating %> <%= f.number_field  :rating %></p>
+    <p><%= f.submit %></p>
+<% end %>
+

@@ -10,5 +10,6 @@
     <% end %>
     <p><strong><%= f.label :email %> </strong><%= f.email_field :email %></p>
     <p><strong><%= f.label :password %> </strong><%= f.password_field :password %></p>
-    <p><%= f.submit %></p>
+    <p><%= f.submit 'Login' %></p>
 <% end %>
+<p>Don't have an account? <%= link_to 'Sign Up', new_user_path %></p>

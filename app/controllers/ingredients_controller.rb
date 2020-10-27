@@ -13,7 +13,7 @@ class IngredientsController < ApplicationController
   def create
     @ingredient = Ingredient.new(ingredient_params)
     if @ingredient.save
-      redirect_to ingredient_path(@ingredient), notice: "Ingredient saved successfully"
+      redirect_to ingredients_path, notice: "Ingredient saved successfully"
     else
       render :new, alert: "Ingredient failed to save"
     end
@@ -24,7 +24,7 @@ class IngredientsController < ApplicationController
 
   def update
     if @ingredient.update(ingredient_params)
-      redirect_to ingredient_path(@ingredient), notice: "Ingredient saved successfully"
+      redirect_to ingredients_path, notice: "Ingredient saved successfully"
     else
       render :new, alert: "Ingredient failed to save"
     end
@@ -34,7 +34,7 @@ class IngredientsController < ApplicationController
     if @ingredient.destroy
       redirect_to ingredients_path, notice: "Ingredient successfully deleted"
     else
-      redirect_to ingredient_path(@ingredient), alert: "Ingredient failed to delete"
+      redirect_to ingredients_path alert: "Ingredient failed to delete"
     end
   end
 

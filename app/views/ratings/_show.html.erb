@@ -1,2 +1,2 @@
-<h1>Rating show partial</h1>
-<p>Find me in app/views/ratings/_show.html.erb</p>
+<strong>Rating from <%= @rating.user.name %> on <%= @rating.created_at.to_s(:short) %></strong>
+<div><%= show_stars @rating.rating %></div>

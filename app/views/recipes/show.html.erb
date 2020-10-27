@@ -1,2 +1,14 @@
-<h1>Recipe#show</h1>
-<p>Find me in app/views/recipe/show.html.erb</p>
+<h1><%= @recipe.name %> | <%= link_to @category.name, category_recipes_path(@category) %> Recipes</h1>
+<p><strong>Directions</strong>:</p><p><%= @recipe.directions %></p>
+<p><strong>Estimated Time</strong>: <%= @recipe.estimated_time %> minutes</p>
+<p><strong>Ingredients</strong></p>
+<ul>
+    <% @recipe.recipe_ingredients.each do |ri| %>
+        <li><%= ri.ingredient.name %> &ndash; <%= pluralize(ri.quantity, ri.ingredient.units) %></li>
+    <% end %>
+</ul>
+<h4>Ratings:</h4>
+
+<%= render 'ratings/show', collection: @ratings, as: :rating %>
+<%= render 'ratings/new' %>
+<p><%= link_to "Back to #{@category.name} recipes", category_recipes_path(@category) %></p>
