@@ -1,5 +1,11 @@
 <h1><%= @category.name %> Recipes</h1>
-
+<h4>
+    Sort By: 
+    <%= link_to 'Alphabetical', category_recipes_path(@category, sort: :alpha)  %> |
+    <%= link_to 'Date Created', category_recipes_path(@category, sort: :created)  %> |
+    <%= link_to 'Est. Time', category_recipes_path(@category, sort: :estimated_time)  %> |
+    <%= link_to 'Rating', category_recipes_path(@category, sort: :rating) %>
+</h4>
 <p>Select a Recipe Below</p>
 <ul>
     <% @recipes.each do |r| %>

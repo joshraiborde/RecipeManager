@@ -31,4 +31,10 @@ class Recipe < ApplicationRecord
     has_many :ratings
 
     accepts_nested_attributes_for :recipe_ingredients, allow_destroy: true
+
+    scope :in_category, ->(cat) { where(category: cat) }
+
+    def average_rating
+        ratings.average(:rating)
+    end
 end

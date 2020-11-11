@@ -4,7 +4,17 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
   def index
-    @recipes = @category.recipes
+    @recipes = Recipe.in_category(@category)
+    order = params[:order]
+    if order.to_s == 'alpha'
+      @recipes = @recipes.order(:name)
+    elsif order.to_s == 'created'
+      @recipes = @recipes.order(created_at: :desc)
+    elsif order.to_s == 'estimated_time'
+      @recipes = @recipes.order(:estimated_time)
+    elsif order.to_s == 'rating'
+      @recipes = @recipes.to_a.sort(&:average_rating).reverse
+    end
   end
 
   def new
@@ -21,7 +31,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @ratings = @recipe.ratings
+    @ratings = @recipe.ratings.all
     @rating = @ratings.build
   end
 

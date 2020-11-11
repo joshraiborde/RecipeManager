@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   end
   resources :ingredients, except: %i[show]
   resource :user, only: %i[new create show] 
-  resource :session, only: %i[new create destroy]
+  resource :session, only: %i[new create destroy] do
+    collection do
+      get :oauth
+      get :callback
+    end
+  end
 end

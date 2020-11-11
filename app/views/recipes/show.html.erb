@@ -9,6 +9,7 @@
 </ul>
 <h4>Ratings:</h4>
 
-<%= render 'ratings/show', collection: @ratings, as: :rating %>
+<%= render partial: 'ratings/show', collection: @ratings, as: :rating %>
 <%= render 'ratings/new' %>
+<p><%= link_to 'Edit', edit_category_recipe_path(@category, @recipe) %></p>
 <p><%= link_to "Back to #{@category.name} recipes", category_recipes_path(@category) %></p>

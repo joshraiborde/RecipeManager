@@ -13,6 +13,8 @@ gem 'puma', '~> 4.1'
 gem 'jbuilder', '~> 2.7'
 # Allows variable number of items to be added in a has many form
 gem 'cocoon'
+# Allows login to google
+gem 'googleauth'
 
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'

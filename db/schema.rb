@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_22_171110) do
+ActiveRecord::Schema.define(version: 2020_11_11_193105) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -53,9 +53,10 @@ ActiveRecord::Schema.define(version: 2020_10_22_171110) do
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
-    t.string "password_digest", null: false
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "google_user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

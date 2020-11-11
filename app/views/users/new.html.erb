@@ -14,4 +14,5 @@
     <p><strong><%= f.label :password_confirmation %> </strong><%= f.password_field :password_confirmation %></p>
     <p><%= f.submit %></p>
 <% end %>
+<p><%= link_to 'Login with Google', oauth_session_path %></p>
 <p>Already have an account? <%= link_to 'Login', new_session_path %></p>
